@@ -1,4 +1,4 @@
-# terraform-google-module-template
+# terraform-google-monitoring
 
 [![Releases](https://img.shields.io/github/v/release/notablehealth/terraform-google-monitoring)](https://github.com/notablehealth/terraform-google-monitoring/releases)
 
@@ -8,11 +8,9 @@ Module for managing Google Cloud Monitoring
 
 ## Features
 
--
+- Goal is to support all Google Cloud Monitoring resources that Terraform supports
 
 ## Usage
-
-
 
 ```hcl
 module "monitoring" {
@@ -22,6 +20,12 @@ module "monitoring" {
 
 }
 ```
+
+## Modules
+
+- [Modules](modules/README.md)
+
+
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
