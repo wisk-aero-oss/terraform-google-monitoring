@@ -1,0 +1,107 @@
+
+
+locals {
+  channel_pagerduty_refs = compact(distinct(flatten(
+    [
+      for channel in var.notification_channels : [
+        for label, value in(channel.sensitive_labels == null ? {} : channel.sensitive_labels) : [
+          #name         = "${channel.display_name}:${label}"
+          #secret_label = label
+          #secret_id    = value
+          value
+        ] if(value != null) && (label == "service_key") && (try(startswith(value, "pagerduty:"), false) == true)
+      ]
+    ]
+  )))
+
+  channel_secret_refs = compact(distinct(flatten(
+    [
+      for channel in var.notification_channels : [
+        for label, value in(channel.sensitive_labels == null ? {} : channel.sensitive_labels) : [
+          #name         = "${channel.display_name}:${label}"
+          #secret_label = label
+          #secret_id    = value
+          value
+        ] if value != null && (try(startswith(value, "secret:"), false) == true)
+      ]
+    ]
+  )))
+}
+
+##https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/service_integration
+data "pagerduty_service_integration" "notification_channels" {
+  for_each = toset(local.channel_pagerduty_refs)
+  # pagerduty:service_name:integration_summary
+  service_name        = split(":", each.key)[1]
+  integration_summary = split(":", each.key)[2]
+}
+#### .integration_key
+
+### https://handbook.sourcegraph.com/departments/engineering/teams/devops/gcp-slack-notification-terraform/
+data "google_secret_manager_secret_version_access" "notification_channels" {
+  for_each = toset(local.channel_secret_refs)
+  # secret:secret_name
+  secret  = split(":", each.key)[1]
+  project = var.gcp_project
+}
+#### .id = .name .project .secret .secret_data .version
+
+resource "google_monitoring_notification_channel" "self" {
+  for_each     = { for channel in var.notification_channels : channel.display_name => channel }
+  description  = each.value.description
+  display_name = each.value.display_name
+  enabled      = each.value.enabled
+  labels       = each.value.labels
+  project      = var.gcp_project
+  type         = each.value.type
+  user_labels  = each.value.user_labels
+
+  dynamic "sensitive_labels" {
+    for_each = each.value.sensitive_labels != null ? [each.value.sensitive_labels] : []
+    content {
+      # one and only 1 of the keys must be specified
+      auth_token = (try(each.value.sensitive_labels.auth_token, null) != null ?
+        # if secret exists
+        (lookup(data.google_secret_manager_secret_version_access.notification_channels, each.value.sensitive_labels.auth_token, null) != null ?
+          data.google_secret_manager_secret_version_access.notification_channels[each.value.sensitive_labels.auth_token].secret_data
+          # else use raw value
+        : each.value.sensitive_labels.auth_token)
+        : null
+      )
+      password = (try(each.value.sensitive_labels.password, null) != null ?
+        # if secret exists
+        (lookup(data.google_secret_manager_secret_version_access.notification_channels, each.value.sensitive_labels.password, null) != null ?
+          data.google_secret_manager_secret_version_access.notification_channels[each.value.sensitive_labels.password].secret_data
+          # else use raw value
+        : each.value.sensitive_labels.password)
+        : null
+      )
+      service_key = (try(each.value.sensitive_labels.service_key, null) != null ?
+        # If pagerduty ref exists
+        (lookup(data.pagerduty_service_integration.notification_channels, each.value.sensitive_labels.service_key, null) != null ?
+          data.pagerduty_service_integration.notification_channels[each.value.sensitive_labels.service_key].integration_key :
+          # If secret exists
+          (lookup(data.google_secret_manager_secret_version_access.notification_channels, each.value.sensitive_labels.service_key, null) != null ?
+            data.google_secret_manager_secret_version_access.notification_channels[each.value.sensitive_labels.service_key].secret_data
+            # else use raw value
+        : each.value.sensitive_labels.service_key))
+        : null
+      )
+
+      # These are for debugging
+      #auth_token = ((try(each.value.sensitive_labels.password, null) == null) && try(each.value.sensitive_labels.service_key, null) == null
+      #  ? "token" : null)
+      #password = ((try(each.value.sensitive_labels.auth_token, null) == null) && try(each.value.sensitive_labels.service_key, null) == null
+      #  # if secret exists
+      #  ? "p"
+      #  # else use raw value
+      #  : null)
+      #service_key = ((try(each.value.sensitive_labels.auth_token, null) == null) && try(each.value.sensitive_labels.password, null) == null
+      #  # if pagerduty ref exists
+      #  # else if secret exists
+      #  ? "key"
+      #  # else use raw value
+      #  : null )
+    }
+  }
+}

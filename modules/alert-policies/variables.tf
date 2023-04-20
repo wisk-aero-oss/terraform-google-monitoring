@@ -1,56 +1,14 @@
 
-
-variable "dashboard_sources_path" {
-  description = "Path to process dashboard source files"
-  type        = string
-}
-
-variable "enable_alert_policies" {
-  description = "Enable Alert Polices"
-  type        = bool
-  default     = false
-}
-variable "enable_dashboards" {
-  description = "Enable Dashboards"
-  type        = bool
-  default     = false
-}
-variable "enable_groups" {
-  description = "Enable Groups"
-  type        = bool
-  default     = false
-}
-variable "enable_log_metrics" {
-  description = "Enable Log Metrics"
-  type        = bool
-  default     = false
-}
-variable "enable_notification_channels" {
-  description = "Enable Notification Channels"
-  type        = bool
-  default     = false
-}
-variable "enable_project_scope" {
-  description = "Enable Project Scope"
-  type        = bool
-  default     = false
-}
-variable "enable_uptime_checks" {
-  description = "Enable Uptime Checks"
-  type        = bool
-  default     = false
-}
-
 variable "gcp_project" {
   description = "GCP project to put monitoring in"
   type        = string
 }
-variable "gcp_org_id" {
-  description = "Google Organization ID"
-  type        = string
-  default     = ""
-}
 
+###---------------------------
+### Resource data structures
+###---------------------------
+
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_alert_policy
 variable "alert_policies" {
   description = "Alert policy configuration objects"
   type = list(object({
@@ -124,36 +82,4 @@ variable "alert_policies" {
     notification_channels = optional(list(string), [])
     user_labels           = optional(map(string))
   }))
-  # Minimum required fields
-  default = [{
-    combiner = ""
-    conditions = [{
-      display_name = ""
-    }]
-    display_name = ""
-    documentation = {
-      content = ""
-    }
-  }]
-}
-
-variable "groups" {
-  description = "Group configuration objects"
-  type        = list(object({}))
-  default     = []
-}
-variable "logging_metrics" {
-  description = "Logging Metric configuration objects"
-  type        = list(object({}))
-  default     = []
-}
-variable "notification_channels" {
-  description = "Notification Channel configuration objects"
-  type        = list(object({}))
-  default     = []
-}
-variable "uptime_checks" {
-  description = "Uptime Check configuration objects"
-  type        = list(object({}))
-  default     = []
 }
