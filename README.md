@@ -17,7 +17,6 @@ module "monitoring" {
   source  = "notablehealth/monitoring/google"
   # Recommend pinning every module to a specific version
   # version = "x.x.x"
-
 }
 ```
 

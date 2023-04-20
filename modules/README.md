@@ -9,10 +9,12 @@ Code to manage Google Cloud Monitoring components
 - [Dashboards](dashboards/README.md)
 - [Groups](groups/README.md)
 - [Log Metrics](log-metrics/README.md)
+- Log View
 - [Central Logging](logging/README.md)
-- [Metrics](metrics/README.md)
+- [Metric Descriptors](metrics/README.md)
 - [Notification Channels](notification-channels/README.md)
 - [Metric Project Scope](project-scope/README.md)
+- [Services](services/README.md)
 - [SLO](slo/README.md)
 - [Uptime Checks](uptime-checks/README.md)
 
