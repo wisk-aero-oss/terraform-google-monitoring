@@ -12,7 +12,7 @@ terraform {
     #}
     pagerduty = {
       source  = "pagerduty/pagerduty"
-      version = "~> 2.11.2"
+      version = "~> 2.14.3"
     }
   }
 }
