@@ -32,7 +32,9 @@ variable "notification_channels" {
       for channel in var.notification_channels :
       length(setintersection(
         keys(channel.labels == null ? {} : channel.labels),
-    keys(channel.sensitive_labels == null ? {} : channel.sensitive_labels))) == 0])
+        keys(channel.sensitive_labels == null ? {} : channel.sensitive_labels)
+      )) == 0
+    ])
     error_message = "Same label can not be defined in both labels and sensitive_labels"
   }
   #validation { # sensitive_labels is right format for GCP secret lookup ??

@@ -12,6 +12,8 @@ Module for managing Google Cloud Monitoring
 
 ## Usage
 
+Can use top level wrapper or submodules directly
+
 ```hcl
 module "monitoring" {
   source  = "notablehealth/monitoring/google"
