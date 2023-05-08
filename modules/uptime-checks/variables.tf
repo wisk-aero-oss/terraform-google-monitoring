@@ -75,7 +75,7 @@ variable "uptime_checks" {
     condition = alltrue([
       for check in var.uptime_checks :
       check.monitored_resource.type == "gce_instance" ?
-      toset(keys(check.monitored_resource.labels)) == toset(["instance_id", "project_id", "zone"])
+      length(setintersection(toset(keys(check.monitored_resource.labels)), toset(["instance_id", "project_id", "zone"]))) == 3
       : true
     ])
     error_message = "Type gce_instance requires instance_id, project_id, zone."
@@ -84,7 +84,7 @@ variable "uptime_checks" {
     condition = alltrue([
       for check in var.uptime_checks :
       check.monitored_resource.type == "k8s_service" ?
-      toset(keys(check.monitored_resource.labels)) == toset(["cluster_name", "location", "namespace_name", "project_id", "service_name"])
+      length(setintersection(toset(keys(check.monitored_resource.labels)), toset(["cluster_name", "location", "namespace_name", "project_id", "service_name"]))) == 5
       : true
     ])
     error_message = "Type k8s_service requires labels: cluster_name, location, namespace_name, project_id, service_name."
@@ -93,7 +93,7 @@ variable "uptime_checks" {
     condition = alltrue([
       for check in var.uptime_checks :
       check.monitored_resource.type == "servicedirectory_service" ?
-      toset(keys(check.monitored_resource.labels)) == toset(["location", "namespace_name", "project_id", "service_name"])
+      length(setintersection(toset(keys(check.monitored_resource.labels)), toset(["location", "namespace_name", "project_id", "service_name"]))) == 4
       : true
     ])
     error_message = "Type servicedirectory_service requires labels: location, namespace_name, project_id, service_name."
@@ -102,7 +102,7 @@ variable "uptime_checks" {
     condition = alltrue([
       for check in var.uptime_checks :
       check.monitored_resource.type == "uptime_url" ?
-      toset(keys(check.monitored_resource.labels)) == toset(["host", "project_id"])
+      length(setintersection(toset(keys(check.monitored_resource.labels)), toset(["host", "project_id"]))) == 2
       : true
     ])
     error_message = "Type uptime_url requires labels: host, project_id."

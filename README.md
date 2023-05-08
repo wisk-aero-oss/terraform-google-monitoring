@@ -22,6 +22,14 @@ module "monitoring" {
 }
 ```
 
+```hcl
+module "uptime_checks" {
+  source = "notablehealth/monitoring/google//modules/uptime-checks"
+  # Recommend pinning every module to a specific version
+  # version = "x.x.x"
+}
+```
+
 ## Modules
 
 - [Modules](modules/README.md)
