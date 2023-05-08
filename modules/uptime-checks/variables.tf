@@ -69,7 +69,7 @@ variable "uptime_checks" {
       # 7 options
       contains(["gce_instance", "k8s_service", "servicedirectory_service", "uptime_url"],
     check.monitored_resource.type)]))
-    error_message = "Allowed values for monitored_resource.type: gce_instance, k8s_service, servicedirectory_service, uptime_url"
+    error_message = "Allowed values for monitored_resource.type: gce_instance, k8s_service, servicedirectory_service, uptime_url."
   }
   validation { # Required labels per monitored_resource.type
     condition = alltrue([
@@ -78,7 +78,7 @@ variable "uptime_checks" {
       toset(keys(check.monitored_resource.labels)) == toset(["instance_id", "project_id", "zone"])
       : true
     ])
-    error_message = "gce_instance requires instance_id, project_id, zone"
+    error_message = "Type gce_instance requires instance_id, project_id, zone."
   }
   validation { # Required labels per monitored_resource.type
     condition = alltrue([
@@ -87,7 +87,7 @@ variable "uptime_checks" {
       toset(keys(check.monitored_resource.labels)) == toset(["cluster_name", "location", "namespace_name", "project_id", "service_name"])
       : true
     ])
-    error_message = "k8s_service requires labels: cluster_name, location, namespace_name, project_id, service_name"
+    error_message = "Type k8s_service requires labels: cluster_name, location, namespace_name, project_id, service_name."
   }
   validation { # Required labels per monitored_resource.type
     condition = alltrue([
@@ -96,7 +96,7 @@ variable "uptime_checks" {
       toset(keys(check.monitored_resource.labels)) == toset(["location", "namespace_name", "project_id", "service_name"])
       : true
     ])
-    error_message = "servicedirectory_service requires labels: location, namespace_name, project_id, service_name"
+    error_message = "Type servicedirectory_service requires labels: location, namespace_name, project_id, service_name."
   }
   validation { # Required labels per monitored_resource.type
     condition = alltrue([
@@ -105,8 +105,6 @@ variable "uptime_checks" {
       toset(keys(check.monitored_resource.labels)) == toset(["host", "project_id"])
       : true
     ])
-    error_message = "uptime_url requires labels: host, project_id"
+    error_message = "Type uptime_url requires labels: host, project_id."
   }
 }
-
-###
