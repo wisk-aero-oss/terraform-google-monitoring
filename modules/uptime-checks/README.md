@@ -35,5 +35,6 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_ids"></a> [ids](#output\_ids) | The IDs of the uptime checks. |
 | <a name="output_uptime_checks"></a> [uptime\_checks](#output\_uptime\_checks) | All uptime checks managed |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
