@@ -1,6 +1,6 @@
 output "ids" {
   description = "The IDs of the uptime checks."
-  value       = google_monitoring_uptime_check_config.self[*].uptime_check_id
+  value       = [for check in google_monitoring_uptime_check_config.self : check.uptime_check_id]
 }
 
 output "uptime_checks" {
