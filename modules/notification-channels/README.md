@@ -4,9 +4,13 @@
 
 - Environment variable must be set to lookup integration keys
   - PAGERDUTY_TOKEN
-- If not using pagerduty, create this provider to disable initial API call and ensure that there are no label values that start with pagerduty:
+- If not using pagerduty, create this provider to disable initial API call and ensure that there are no label values that start with pagerduty
+
 ```hcl
-provider
+provider "pagerduty" {
+  token                       = "SKIP"
+  skip_credentials_validation = true
+}
 ```
 
 ## Sensitive Labels lookups

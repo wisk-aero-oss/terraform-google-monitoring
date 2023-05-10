@@ -30,9 +30,9 @@ module "uptime_checks" {
 }
 ```
 
-## Modules
+## Submodules
 
-- [Modules](modules/README.md)
+- [Submodules](modules/README.md)
 
 
 
