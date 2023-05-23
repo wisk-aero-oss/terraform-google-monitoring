@@ -51,3 +51,9 @@ variable "organization_sink_description" {
   type        = string
   default     = "Organization sink"
 }
+# This or change to exclude sources list(map(string)) : source_type & display_name
+#variable "organization_sink_exclude_folders" {
+#  description = "Organization sink list of folder names to exclude"
+#  type        = list(string)
+#  default     = ["system-gsuite"]
+#}

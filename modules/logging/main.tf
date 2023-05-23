@@ -1,7 +1,4 @@
 
-## Create in notable-monitoring-prod
-
-
 ### Logging Bucket
 resource "google_logging_project_bucket_config" "self" {
   bucket_id        = var.logging_bucket
@@ -31,9 +28,30 @@ resource "google_logging_organization_sink" "self" {
   #destination = "storage.googleapis.com/${google_storage_bucket.log-bucket.name}"
   destination = google_logging_project_bucket_config.self.id
 
+  # https://cloud.google.com/logging/docs/view/building-queries
+  # https://cloud.google.com/logging/docs/view/logging-query-language
+  # https://cloud.google.com/logging/docs/view/query-library
+
   # Log all WARN or higher severity messages relating to instances
   filter = "resource.type = gce_instance AND severity >= WARNING"
-  #exclusions =
+  # Support multiple exclusion blocks (list(object({})))
+  #   name
+  #   description
+  #   filter
+  #   disabled = optional(bool, false)
+  #dynamic "exclusions" {
+  #  for_each = var.organization_sink_exclude_folders
+  #  content {
+  #    name        = "exclude-source-${exclusions.value}"
+  #    description = "Exclusion for folder ${exclusions.value}"
+  #    #filter      = "resource.type = folder AND resource.labels.folder_id = ${exclusions.value}"
+  #    filter      = "source(folders/${exclusions.value})"
+  #    #disabled =
+  #  }
+  #}
+  # folder: system-gsuite ID#
+  #source(folders/FOLDER_ID)
+  #source(projects/PROJECT_ID)
 }
 
 ### Permissions
