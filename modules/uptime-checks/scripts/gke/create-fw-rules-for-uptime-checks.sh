@@ -44,11 +44,13 @@ for project in $(gcloud projects list --format="value(projectId)" | grep -v ^sys
   fi
 done
 
+#project=''
+#network=''
 #gcloud compute firewall-rules create "uptime-checks-${network}" \
 #  --description="Allow uptime checks to reach GKE clusters" \
 #  --network="${network}"  \
 #  --action=allow --direction=ingress \
 #  --source-ranges="35.199.192.0/19" \
-#  --rules=tcp --project="${project_id}"
+#  --rules=tcp --project="${project}"
 #
 #gcloud compute firewall-rules list
