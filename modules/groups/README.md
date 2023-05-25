@@ -12,7 +12,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 4.62.1 |
+| <a name="provider_google"></a> [google](#provider\_google) | 4.66.0 |
 
 ## Modules
 
@@ -31,7 +31,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_gcp_project"></a> [gcp\_project](#input\_gcp\_project) | GCP project ID | `string` | n/a | yes |
-| <a name="input_groups"></a> [groups](#input\_groups) | List of group confiiguration object | <pre>list(object({<br>    display_name = string<br>    filter       = string<br>    is_cluster   = optional(bool)<br>    parent_name  = optional(string)<br>  }))</pre> | n/a | yes |
+| <a name="input_groups"></a> [groups](#input\_groups) | List of group confiiguration object | <pre>list(object({<br>    display_name = string<br>    filter       = string<br>    is_cluster   = optional(bool)<br>    parent_name  = optional(string)<br>  }))</pre> | <pre>[<br>  {<br>    "display_name": "",<br>    "filter": ""<br>  }<br>]</pre> | no |
 
 ## Outputs
 

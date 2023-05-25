@@ -20,22 +20,18 @@ resource "google_logging_linked_dataset" "self" {
 ### Organization Sink
 resource "google_logging_organization_sink" "self" {
   description      = var.organization_sink_description
+  destination      = "logging.googleapis.com/${google_logging_project_bucket_config.self.name}"
   disabled         = var.disable_organization_sink
   include_children = true
   name             = var.organization_sink
   org_id           = data.google_organization.self.org_id
-  # Can export to pubsub, cloud storage, or bigquery
-  #destination = "storage.googleapis.com/${google_storage_bucket.log-bucket.name}"
-  destination = "logging.googleapis.com/${google_logging_project_bucket_config.self.name}"
-  # name             = "projects/notable-monitoring-prod/locations/global/buckets/organization-logs"
-  # logging.googleapis.com/projects/[PROJECT_ID]]/locations/global/buckets/[BUCKET_ID]
 
   # https://cloud.google.com/logging/docs/view/building-queries
   # https://cloud.google.com/logging/docs/view/logging-query-language
   # https://cloud.google.com/logging/docs/view/query-library
 
   # Log all WARN or higher severity messages relating to instances
-  filter = "resource.type = gce_instance AND severity >= WARNING"
+  filter = "severity >= WARNING"
   # Support multiple exclusion blocks (list(object({})))
   #   name
   #   description

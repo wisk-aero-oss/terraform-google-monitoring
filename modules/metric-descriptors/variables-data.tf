@@ -18,5 +18,11 @@ variable "metric_descriptors" {
     unit        = optional(string)
     value_type  = string # validate
   }))
-  default = []
+  default = [{
+    description  = ""
+    display_name = ""
+    metric_kind  = ""
+    type         = ""
+    value_type   = ""
+  }]
 }
