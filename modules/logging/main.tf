@@ -18,42 +18,44 @@ resource "google_logging_linked_dataset" "self" {
 }
 
 ### Organization Sink
-#resource "google_logging_organization_sink" "self" {
-#  description      = var.organization_sink_description
-#  disabled         = var.disable_organization_sink
-#  include_children = true
-#  name             = var.organization_sink
-#  org_id           = data.google_organization.self.org_id
-#  # Can export to pubsub, cloud storage, or bigquery
-#  #destination = "storage.googleapis.com/${google_storage_bucket.log-bucket.name}"
-#  destination = "logging.googleapis.com/${google_logging_project_bucket_config.self.name}"
-#
-#  # https://cloud.google.com/logging/docs/view/building-queries
-#  # https://cloud.google.com/logging/docs/view/logging-query-language
-#  # https://cloud.google.com/logging/docs/view/query-library
-#
-#  # Log all WARN or higher severity messages relating to instances
-#  filter = "resource.type = gce_instance AND severity >= WARNING"
-#  # Support multiple exclusion blocks (list(object({})))
-#  #   name
-#  #   description
-#  #   filter
-#  #   disabled = optional(bool, false)
-#  #dynamic "exclusions" {
-#  #  for_each = var.organization_sink_exclude_folders
-#  #  content {
-#  #    name        = "exclude-source-${exclusions.value}"
-#  #    description = "Exclusion for folder ${exclusions.value}"
-#  #    #filter      = "resource.type = folder AND resource.labels.folder_id = ${exclusions.value}"
-#  #    filter      = "source(folders/${exclusions.value})"
-#  #    #disabled =
-#  #  }
-#  #}
-#  # folder: system-gsuite ID#
-#  #source(folders/FOLDER_ID)
-#  #source(projects/PROJECT_ID)
-#}
-#
+resource "google_logging_organization_sink" "self" {
+  description      = var.organization_sink_description
+  disabled         = var.disable_organization_sink
+  include_children = true
+  name             = var.organization_sink
+  org_id           = data.google_organization.self.org_id
+  # Can export to pubsub, cloud storage, or bigquery
+  #destination = "storage.googleapis.com/${google_storage_bucket.log-bucket.name}"
+  destination = "logging.googleapis.com/${google_logging_project_bucket_config.self.name}"
+  # name             = "projects/notable-monitoring-prod/locations/global/buckets/organization-logs"
+  # logging.googleapis.com/projects/[PROJECT_ID]]/locations/global/buckets/[BUCKET_ID]
+
+  # https://cloud.google.com/logging/docs/view/building-queries
+  # https://cloud.google.com/logging/docs/view/logging-query-language
+  # https://cloud.google.com/logging/docs/view/query-library
+
+  # Log all WARN or higher severity messages relating to instances
+  filter = "resource.type = gce_instance AND severity >= WARNING"
+  # Support multiple exclusion blocks (list(object({})))
+  #   name
+  #   description
+  #   filter
+  #   disabled = optional(bool, false)
+  #dynamic "exclusions" {
+  #  for_each = var.organization_sink_exclude_folders
+  #  content {
+  #    name        = "exclude-source-${exclusions.value}"
+  #    description = "Exclusion for folder ${exclusions.value}"
+  #    #filter      = "resource.type = folder AND resource.labels.folder_id = ${exclusions.value}"
+  #    filter      = "source(folders/${exclusions.value})"
+  #    #disabled =
+  #  }
+  #}
+  # folder: system-gsuite ID#
+  #source(folders/FOLDER_ID)
+  #source(projects/PROJECT_ID)
+}
+
 ## Exclusions can be done in sink or with exclusion resource
 # Limits:
 #   Org and folder level don't apply to child resources
@@ -72,9 +74,9 @@ resource "google_logging_linked_dataset" "self" {
 ### Permissions
 # sink Service Account needs Logs Buckets Writer to log bucket
 
-## Allow each sink's service account to write logs into the audit logs project
-#resource "google_project_iam_member" "self" {
-#  project = var.logging_project
-#  role    = "roles/logging.bucketWriter"
-#  member  = google_logging_organization_sink.self.writer_identity
-#}
+# Allow each sink's service account to write logs into the audit logs project
+resource "google_project_iam_member" "self" {
+  project = var.logging_project
+  role    = "roles/logging.bucketWriter"
+  member  = google_logging_organization_sink.self.writer_identity
+}

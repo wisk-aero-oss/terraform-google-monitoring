@@ -1,10 +1,10 @@
 
 # Variables
-#variable "disable_organization_sink" {
-#  description = "Disable organization sink"
-#  type        = bool
-#  default     = true
-#}
+variable "disable_organization_sink" {
+  description = "Disable organization sink"
+  type        = bool
+  default     = true
+}
 variable "enable_linked_dataset" {
   description = "Enable linked dataset"
   type        = bool
@@ -38,19 +38,19 @@ variable "logging_project" {
   description = "Ceneral logging project"
   type        = string
 }
-#variable "organization_name" {
-#  description = "Organization name"
-#  type        = string
-#}
-#variable "organization_sink" {
-#  description = "Organization sink name"
-#  type        = string
-#}
-#variable "organization_sink_description" {
-#  description = "Organization sink description"
-#  type        = string
-#  default     = "Organization sink"
-#}
+variable "organization_name" {
+  description = "Organization name"
+  type        = string
+}
+variable "organization_sink" {
+  description = "Organization sink name"
+  type        = string
+}
+variable "organization_sink_description" {
+  description = "Organization sink description"
+  type        = string
+  default     = "Organization sink"
+}
 # This or change to exclude sources list(map(string)) : source_type & display_name
 #variable "organization_sink_exclude_folders" {
 #  description = "Organization sink list of folder names to exclude"
