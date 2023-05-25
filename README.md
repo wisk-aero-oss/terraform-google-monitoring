@@ -103,17 +103,26 @@ No resources.
 | Name | Description |
 |------|-------------|
 | <a name="output_alert_policy_channel_names"></a> [alert\_policy\_channel\_names](#output\_alert\_policy\_channel\_names) | Notification channels referenced by alert policies |
+| <a name="output_custom_service_ids"></a> [custom\_service\_ids](#output\_custom\_service\_ids) | List of custom service IDs |
+| <a name="output_custom_service_telemetry"></a> [custom\_service\_telemetry](#output\_custom\_service\_telemetry) | List of custom service telemetry |
+| <a name="output_dashboard_ids"></a> [dashboard\_ids](#output\_dashboard\_ids) | List of dashboard IDs |
 | <a name="output_groups_parents"></a> [groups\_parents](#output\_groups\_parents) | Root parent groups |
 | <a name="output_groups_r_subgroups1"></a> [groups\_r\_subgroups1](#output\_groups\_r\_subgroups1) | Resource: subgroups level 1 |
 | <a name="output_groups_r_subgroups2"></a> [groups\_r\_subgroups2](#output\_groups\_r\_subgroups2) | Resource: subgroups level 2 |
 | <a name="output_groups_subgroups1"></a> [groups\_subgroups1](#output\_groups\_subgroups1) | Subgroups - level 1 |
 | <a name="output_groups_subgroups2"></a> [groups\_subgroups2](#output\_groups\_subgroups2) | Subgroups - level 2 |
+| <a name="output_log_metric_ids"></a> [log\_metric\_ids](#output\_log\_metric\_ids) | List of log metric IDs |
 | <a name="output_logging_bucket_config"></a> [logging\_bucket\_config](#output\_logging\_bucket\_config) | Full config of the logging bucket config |
+| <a name="output_metric_descriptor_monitored_resource_types"></a> [metric\_descriptor\_monitored\_resource\_types](#output\_metric\_descriptor\_monitored\_resource\_types) | List of metric descriptor monitored resource types |
+| <a name="output_metric_descriptor_names"></a> [metric\_descriptor\_names](#output\_metric\_descriptor\_names) | List of metric descriptor names |
 | <a name="output_metric_scope_projects"></a> [metric\_scope\_projects](#output\_metric\_scope\_projects) | GCP project settings before any changes |
 | <a name="output_metrics_scope_project"></a> [metrics\_scope\_project](#output\_metrics\_scope\_project) | Metrics scope project ID |
 | <a name="output_notification__channel_pagerduty_integrations"></a> [notification\_\_channel\_pagerduty\_integrations](#output\_notification\_\_channel\_pagerduty\_integrations) | Pagerduty integrations |
 | <a name="output_notification_channel_pagerduty_refs"></a> [notification\_channel\_pagerduty\_refs](#output\_notification\_channel\_pagerduty\_refs) | List of pagerduty service key references |
 | <a name="output_notification_channel_secret_refs"></a> [notification\_channel\_secret\_refs](#output\_notification\_channel\_secret\_refs) | List of Google secret manager secret references |
+| <a name="output_service_ids"></a> [service\_ids](#output\_service\_ids) | List of service IDs |
+| <a name="output_service_telemetry"></a> [service\_telemetry](#output\_service\_telemetry) | List of service telemetry |
+| <a name="output_slo_ids"></a> [slo\_ids](#output\_slo\_ids) | List of SLO IDs |
 | <a name="output_uptime_check_ids"></a> [uptime\_check\_ids](#output\_uptime\_check\_ids) | The IDs of the uptime checks. |
 | <a name="output_uptime_checks"></a> [uptime\_checks](#output\_uptime\_checks) | All uptime checks managed |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

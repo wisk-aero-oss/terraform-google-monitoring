@@ -39,5 +39,7 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_ids"></a> [ids](#output\_ids) | List of log metric IDs |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

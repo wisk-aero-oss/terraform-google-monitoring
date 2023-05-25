@@ -8,7 +8,7 @@
 #  module_id = "default"
 #}
 
-resource "google_monitoring_slo" "appeng_slo" {
+resource "google_monitoring_slo" "self" {
   for_each            = { for slo in var.slos : slo.display_name => slo }
   calendar_period     = each.value.calendar_period
   display_name        = each.value.display_name

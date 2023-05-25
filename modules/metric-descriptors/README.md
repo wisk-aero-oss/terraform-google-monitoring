@@ -32,5 +32,8 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_monitored_resource_types"></a> [monitored\_resource\_types](#output\_monitored\_resource\_types) | List of metric descriptor monitored resource types |
+| <a name="output_names"></a> [names](#output\_names) | List of metric descriptor names |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

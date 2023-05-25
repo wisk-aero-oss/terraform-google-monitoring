@@ -22,7 +22,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [google_monitoring_slo.appeng_slo](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_slo) | resource |
+| [google_monitoring_slo.self](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_slo) | resource |
 
 ## Inputs
 
@@ -33,5 +33,7 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_ids"></a> [ids](#output\_ids) | List of SLO IDs |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

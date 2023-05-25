@@ -46,5 +46,10 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_custom_service_ids"></a> [custom\_service\_ids](#output\_custom\_service\_ids) | List of custom service IDs |
+| <a name="output_custom_service_telemetry"></a> [custom\_service\_telemetry](#output\_custom\_service\_telemetry) | List of custom service telemetry |
+| <a name="output_service_ids"></a> [service\_ids](#output\_service\_ids) | List of service IDs |
+| <a name="output_service_telemetry"></a> [service\_telemetry](#output\_service\_telemetry) | List of service telemetry |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

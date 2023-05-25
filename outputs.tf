@@ -13,6 +13,11 @@ output "alert_policy_channel_names" {
 }
 
 # Dashboards
+output "dashboard_ids" {
+  description = "List of dashboard IDs"
+  value       = module.dashboards[*].ids
+}
+
 # Groups
 output "groups_parents" {
   description = "Root parent groups"
@@ -36,6 +41,11 @@ output "groups_r_subgroups2" {
 }
 
 # Log Metrics
+output "log_metric_ids" {
+  description = "List of log metric IDs"
+  value       = module.log_metrics[*].ids
+}
+
 # Logging
 output "logging_bucket_config" {
   description = "Full config of the logging bucket config"
@@ -43,6 +53,15 @@ output "logging_bucket_config" {
 }
 
 # Metric Descriptors
+output "metric_descriptor_names" {
+  description = "List of metric descriptor names"
+  value       = module.metric_descriptors[*].names
+}
+output "metric_descriptor_monitored_resource_types" {
+  description = "List of metric descriptor monitored resource types"
+  value       = module.metric_descriptors[*].monitored_resource_types
+}
+
 # Notification Channels
 output "notification_channel_pagerduty_refs" {
   description = "List of pagerduty service key references"
@@ -74,7 +93,28 @@ output "metric_scope_projects" {
 }
 
 # Services
+output "service_ids" {
+  description = "List of service IDs"
+  value       = module.services[*].service_ids
+}
+output "service_telemetry" {
+  description = "List of service telemetry"
+  value       = module.services[*].service_telemetry
+}
+output "custom_service_ids" {
+  description = "List of custom service IDs"
+  value       = module.services[*].custom_service_ids
+}
+output "custom_service_telemetry" {
+  description = "List of custom service telemetry"
+  value       = module.services[*].custom_service_telemetry
+}
+
 # SLOs
+output "slo_ids" {
+  description = "List of SLO IDs"
+  value       = module.slo[*].ids
+}
 
 # Uptime Checks
 output "uptime_check_ids" {

@@ -12,7 +12,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 4.62.1 |
+| <a name="provider_google"></a> [google](#provider\_google) | 4.66.0 |
 
 ## Modules
 
@@ -33,5 +33,7 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_ids"></a> [ids](#output\_ids) | List of dashboard IDs |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
