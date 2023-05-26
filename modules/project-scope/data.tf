@@ -1,3 +1,8 @@
+
+data "google_organization" "self" {
+  domain = var.organization_name
+}
+
 data "google_projects" "self" {
-  filter = "parent.id:${var.gcp_org_id}"
+  filter = "parent.id:${data.google_organization.self.id}"
 }

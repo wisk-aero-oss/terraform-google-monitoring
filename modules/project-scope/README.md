@@ -25,7 +25,7 @@ Manage the monitoring scope for projects
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 4.62.1 |
+| <a name="provider_google"></a> [google](#provider\_google) | 4.66.0 |
 
 ## Modules
 
@@ -36,13 +36,14 @@ No modules.
 | Name | Type |
 |------|------|
 | [google_monitoring_monitored_project.self](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_monitored_project) | resource |
+| [google_organization.self](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/organization) | data source |
 | [google_projects.self](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/projects) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_gcp_org_id"></a> [gcp\_org\_id](#input\_gcp\_org\_id) | Google Organization ID | `string` | n/a | yes |
+| <a name="input_organization_name"></a> [organization\_name](#input\_organization\_name) | Organization domain name | `string` | n/a | yes |
 
 ## Outputs
 

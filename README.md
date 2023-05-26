@@ -85,7 +85,6 @@ No resources.
 | <a name="input_enable_services"></a> [enable\_services](#input\_enable\_services) | Enable managing Services | `bool` | `false` | no |
 | <a name="input_enable_slo"></a> [enable\_slo](#input\_enable\_slo) | Enable managing SLOs | `bool` | `false` | no |
 | <a name="input_enable_uptime_checks"></a> [enable\_uptime\_checks](#input\_enable\_uptime\_checks) | Enable managing Uptime Checks | `bool` | `false` | no |
-| <a name="input_gcp_org_id"></a> [gcp\_org\_id](#input\_gcp\_org\_id) | Google Organization ID | `string` | `""` | no |
 | <a name="input_gcp_project"></a> [gcp\_project](#input\_gcp\_project) | GCP project to put monitoring in | `string` | n/a | yes |
 | <a name="input_groups"></a> [groups](#input\_groups) | List of group confiiguration object | <pre>list(object({<br>    display_name = string<br>    filter       = string<br>    is_cluster   = optional(bool)<br>    parent_name  = optional(string)<br>  }))</pre> | <pre>[<br>  {<br>    "display_name": "",<br>    "filter": ""<br>  }<br>]</pre> | no |
 | <a name="input_logging_bucket"></a> [logging\_bucket](#input\_logging\_bucket) | Logging Bucket name | `string` | `""` | no |

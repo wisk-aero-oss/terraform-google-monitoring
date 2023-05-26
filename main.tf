@@ -22,8 +22,9 @@ module "dashboards" {
 }
 
 module "groups" {
-  source = "./modules/groups"
-  count  = var.enable_groups && length(var.groups) != 0 ? 1 : 0
+  source     = "./modules/groups"
+  count      = var.enable_groups && length(var.groups) != 0 ? 1 : 0
+  depends_on = [module.project_scope]
 
   gcp_project = var.gcp_project
   groups      = var.groups
@@ -64,9 +65,9 @@ module "notification_channels" {
 
 module "project_scope" {
   source = "./modules/project-scope"
-  count  = var.enable_project_scope && var.gcp_org_id != "" ? 1 : 0
+  count  = var.enable_project_scope && var.organization_name != "" ? 1 : 0
 
-  gcp_org_id = var.gcp_org_id
+  organization_name = var.organization_name
 }
 
 module "services" {

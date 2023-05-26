@@ -10,11 +10,6 @@ variable "gcp_project" {
   description = "GCP project to put monitoring in"
   type        = string
 }
-variable "gcp_org_id" {
-  description = "Google Organization ID"
-  type        = string
-  default     = ""
-}
 
 ###==========================
 ### Enable module variables
