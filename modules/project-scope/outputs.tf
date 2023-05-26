@@ -6,7 +6,7 @@ output "metrics_scope_project" {
 }
 output "metrics_scoped_projects" {
   description = "Metrics scoped projects. All projects that metrics are being collected from"
-  value       = google_monitoring_monitored_project.self[0][*].name
+  value       = google_monitoring_monitored_project.self[*].name
 }
 output "monitored_projects" {
   description = "Monitored projects - Full data for debugging"
