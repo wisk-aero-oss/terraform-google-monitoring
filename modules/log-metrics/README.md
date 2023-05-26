@@ -41,5 +41,5 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_ids"></a> [ids](#output\_ids) | List of log metric IDs |
+| <a name="output_logging_metrics"></a> [logging\_metrics](#output\_logging\_metrics) | All logging metric objects - for debugging |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

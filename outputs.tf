@@ -45,9 +45,13 @@ output "groups_r_subgroups2" {
 }
 
 # Log Metrics
-output "log_metric_ids" {
-  description = "List of log metric IDs"
-  value       = module.log_metrics[*].ids
+#output "log_metric_ids" {
+#  description = "List of log metric IDs"
+#  value       = module.log_metrics[*].ids
+#}
+output "logging_metrics" {
+  description = "All logging metric objects - for debugging"
+  value       = module.log_metrics[*].logging_metrics
 }
 
 # Logging

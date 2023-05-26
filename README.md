@@ -110,8 +110,8 @@ No resources.
 | <a name="output_groups_r_subgroups2"></a> [groups\_r\_subgroups2](#output\_groups\_r\_subgroups2) | Resource: subgroups level 2 |
 | <a name="output_groups_subgroups1"></a> [groups\_subgroups1](#output\_groups\_subgroups1) | Subgroups - level 1 |
 | <a name="output_groups_subgroups2"></a> [groups\_subgroups2](#output\_groups\_subgroups2) | Subgroups - level 2 |
-| <a name="output_log_metric_ids"></a> [log\_metric\_ids](#output\_log\_metric\_ids) | List of log metric IDs |
 | <a name="output_logging_bucket_config"></a> [logging\_bucket\_config](#output\_logging\_bucket\_config) | Full config of the logging bucket config |
+| <a name="output_logging_metrics"></a> [logging\_metrics](#output\_logging\_metrics) | All logging metric objects - for debugging |
 | <a name="output_metric_descriptor_monitored_resource_types"></a> [metric\_descriptor\_monitored\_resource\_types](#output\_metric\_descriptor\_monitored\_resource\_types) | List of metric descriptor monitored resource types |
 | <a name="output_metric_descriptor_names"></a> [metric\_descriptor\_names](#output\_metric\_descriptor\_names) | List of metric descriptor names |
 | <a name="output_metric_scope_projects"></a> [metric\_scope\_projects](#output\_metric\_scope\_projects) | GCP project settings before any changes |
