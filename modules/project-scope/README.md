@@ -50,5 +50,6 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_metrics_scope_project"></a> [metrics\_scope\_project](#output\_metrics\_scope\_project) | Metrics scope project ID |
+| <a name="output_metrics_scoped_projects"></a> [metrics\_scoped\_projects](#output\_metrics\_scoped\_projects) | Metrics scoped projects. All projects that metrics are being collected from |
 | <a name="output_projects"></a> [projects](#output\_projects) | GCP project settings before any changes |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

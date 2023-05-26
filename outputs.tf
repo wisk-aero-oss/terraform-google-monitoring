@@ -91,6 +91,10 @@ output "metrics_scope_project" {
   description = "Metrics scope project ID"
   value       = module.project_scope[*].metrics_scope_project
 }
+output "metrics_scoped_projects" {
+  description = "Metrics scoped projects. All projects that metrics are being collected from"
+  value       = module.project_scope[*].metrics_scoped_projects
+}
 output "metric_scope_projects" {
   description = "GCP project settings before any changes"
   value       = module.project_scope[*].projects
