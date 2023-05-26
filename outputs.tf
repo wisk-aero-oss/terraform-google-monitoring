@@ -17,10 +17,10 @@ output "dashboards" {
   description = "List of dashboard objects"
   value       = module.dashboards[*].dashboards
 }
-#output "dashboard_ids" {
-#  description = "List of dashboard IDs"
-#  value       = module.dashboards[*].ids
-#}
+output "dashboard_ids" {
+  description = "List of dashboard IDs"
+  value       = module.dashboards[*].ids
+}
 
 # Groups
 output "groups_parents" {
