@@ -5,7 +5,7 @@ output "dashboards" {
 
 output "ids" {
   description = "List of dashboard IDs"
-  value       = google_monitoring_dashboard.self[*][*].id
+  value       = google_monitoring_dashboard.self[*].id
 }
 
 #output "dashboard_ids" {
