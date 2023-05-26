@@ -117,7 +117,6 @@ No resources.
 | <a name="output_metric_scope_projects"></a> [metric\_scope\_projects](#output\_metric\_scope\_projects) | GCP project settings before any changes |
 | <a name="output_metrics_scope_monitored_projects"></a> [metrics\_scope\_monitored\_projects](#output\_metrics\_scope\_monitored\_projects) | Monitored projects - Full data for debugging |
 | <a name="output_metrics_scope_project"></a> [metrics\_scope\_project](#output\_metrics\_scope\_project) | Metrics scope project ID |
-| <a name="output_metrics_scoped_projects"></a> [metrics\_scoped\_projects](#output\_metrics\_scoped\_projects) | Metrics scoped projects. All projects that metrics are being collected from |
 | <a name="output_notification_channel_pagerduty_integrations"></a> [notification\_channel\_pagerduty\_integrations](#output\_notification\_channel\_pagerduty\_integrations) | Pagerduty integrations |
 | <a name="output_notification_channel_pagerduty_refs"></a> [notification\_channel\_pagerduty\_refs](#output\_notification\_channel\_pagerduty\_refs) | List of pagerduty service key references |
 | <a name="output_notification_channel_secret_refs"></a> [notification\_channel\_secret\_refs](#output\_notification\_channel\_secret\_refs) | List of Google secret manager secret references |
