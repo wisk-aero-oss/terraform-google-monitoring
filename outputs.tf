@@ -75,7 +75,7 @@ output "notification_channel_secret_refs" {
   description = "List of Google secret manager secret references"
   value       = module.notification_channels[*].channel_secret_refs
 }
-output "notification__channel_pagerduty_integrations" {
+output "notification_channel_pagerduty_integrations" {
   description = "Pagerduty integrations"
   value       = module.notification_channels[*].pagerduty_integrations
   sensitive   = true
