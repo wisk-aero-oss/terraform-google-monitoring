@@ -36,5 +36,4 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_dashboards"></a> [dashboards](#output\_dashboards) | List of dashboard objects |
-| <a name="output_ids"></a> [ids](#output\_ids) | List of dashboard IDs |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
