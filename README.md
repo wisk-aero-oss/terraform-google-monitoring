@@ -105,7 +105,6 @@ No resources.
 | <a name="output_alert_policy_channel_names"></a> [alert\_policy\_channel\_names](#output\_alert\_policy\_channel\_names) | Notification channels referenced by alert policies |
 | <a name="output_custom_service_ids"></a> [custom\_service\_ids](#output\_custom\_service\_ids) | List of custom service IDs |
 | <a name="output_custom_service_telemetry"></a> [custom\_service\_telemetry](#output\_custom\_service\_telemetry) | List of custom service telemetry |
-| <a name="output_dashboard_ids"></a> [dashboard\_ids](#output\_dashboard\_ids) | List of dashboard IDs |
 | <a name="output_dashboards"></a> [dashboards](#output\_dashboards) | List of dashboard objects |
 | <a name="output_groups_parents"></a> [groups\_parents](#output\_groups\_parents) | Root parent groups |
 | <a name="output_groups_r_subgroups1"></a> [groups\_r\_subgroups1](#output\_groups\_r\_subgroups1) | Resource: subgroups level 1 |
