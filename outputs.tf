@@ -13,6 +13,10 @@ output "alert_policy_channel_names" {
 }
 
 # Dashboards
+output "dashboards" {
+  description = "List of dashboard objects"
+  value       = module.dashboards[*]
+}
 output "dashboard_ids" {
   description = "List of dashboard IDs"
   value       = module.dashboards[*].ids

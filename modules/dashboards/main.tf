@@ -20,7 +20,3 @@ resource "google_monitoring_dashboard" "self" {
 # make list of maps ()
 # need to parse json to get dashboard name
 # id: projects/877632929169/dashboards/ab9e4354-25b2-4d0d-90b3-77ab0502f4a2
-#output "dashboard_ids" {
-#  description = "List of dashboard IDs"
-#  value = google_monitoring_dashboard.self.*.id
-#}
