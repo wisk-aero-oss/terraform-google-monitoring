@@ -4,5 +4,5 @@ data "google_organization" "self" {
 }
 
 data "google_projects" "self" {
-  filter = "parent.id:${data.google_organization.self.id}"
+  filter = "parent.id:${data.google_organization.self.org_id}"
 }
