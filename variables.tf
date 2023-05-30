@@ -5,6 +5,11 @@ variable "dashboard_sources_path" {
   type        = string
   default     = ""
 }
+variable "dashboard_sources_pattern" {
+  description = "Dashboard json files pattern"
+  type        = string
+  default     = "**.json"
+}
 
 variable "gcp_project" {
   description = "GCP project to put monitoring in"

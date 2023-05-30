@@ -28,7 +28,8 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_dashboard_sources_path"></a> [dashboard\_sources\_path](#input\_dashboard\_sources\_path) | Path to process dashboard source files | `string` | n/a | yes |
+| <a name="input_dashboard_sources_path"></a> [dashboard\_sources\_path](#input\_dashboard\_sources\_path) | Path to process dashboard source files. Example: ${path.module}/dashboards | `string` | n/a | yes |
+| <a name="input_dashboard_sources_pattern"></a> [dashboard\_sources\_pattern](#input\_dashboard\_sources\_pattern) | Dashboard json files pattern | `string` | `"**.json"` | no |
 | <a name="input_gcp_project"></a> [gcp\_project](#input\_gcp\_project) | GCP project to put monitoring in | `string` | n/a | yes |
 
 ## Outputs

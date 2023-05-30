@@ -17,8 +17,9 @@ module "dashboards" {
   depends_on = [module.log_metrics, module.uptime_checks]
   # module.metric_descriptors
 
-  dashboard_sources_path = var.dashboard_sources_path
-  gcp_project            = var.gcp_project
+  dashboard_sources_path    = var.dashboard_sources_path
+  dashboard_sources_pattern = var.dashboard_sources_pattern
+  gcp_project               = var.gcp_project
 }
 
 module "groups" {
@@ -52,6 +53,7 @@ module "metric_descriptors" {
   source = "./modules/metric-descriptors"
   count  = var.enable_metric_descriptors && length(var.metric_descriptors) != 0 ? 1 : 0
 
+  gcp_project        = var.gcp_project
   metric_descriptors = var.metric_descriptors
 }
 

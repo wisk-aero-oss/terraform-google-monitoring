@@ -10,10 +10,8 @@
 
 
 resource "google_monitoring_dashboard" "self" {
-  project = var.gcp_project
-  #for_each       = fileset("${path.module}/dashboards", "**")
-  #dashboard_json = file("${path.module}/dashboards/${each.key}")
-  for_each       = fileset(var.dashboard_sources_path, "**")
+  project        = var.gcp_project
+  for_each       = fileset(var.dashboard_sources_path, var.dashboard_sources_pattern)
   dashboard_json = file("${var.dashboard_sources_path}/${each.key}")
 }
 
