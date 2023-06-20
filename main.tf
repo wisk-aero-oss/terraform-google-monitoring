@@ -1,3 +1,18 @@
+/**
+ * # terraform-google-monitoring
+ *
+ * [![Releases](https://img.shields.io/github/v/release/notablehealth/terraform-google-monitoring)](https://github.com/notablehealth/terraform-google-monitoring/releases)
+ *
+ * [Terraform Module Registry](https://registry.terraform.io/modules/notablehealth/monitoring/google)
+ *
+ * Module for managing Google Cloud Monitoring
+ *
+ * ## Features
+ *
+ * - Goal is to support all Google Cloud Monitoring resources that Terraform supports
+ * - Submodules can be called directly
+ * - Wrapper module to call all submodules
+ */
 
 # Google Cloud Monitoring wrapper for component modules
 

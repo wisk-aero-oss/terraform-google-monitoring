@@ -7,9 +7,10 @@
 # Install tools on mac
 # brew install pre-commit gawk terraform-docs tflint tfsec coreutils checkov terrascan shellcheck
 # npm install -g markdown-link-check
+
 repos:
 - repo: https://github.com/antonbabenko/pre-commit-terraform
-  rev: v1.79.1
+  rev: v1.81.0
   hooks:
     #- id: infracost_breakdown
     - id: terraform_fmt

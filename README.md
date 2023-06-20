@@ -37,6 +37,34 @@ module "uptime_checks" {
 
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+# terraform-google-monitoring
+
+[![Releases](https://img.shields.io/github/v/release/notablehealth/terraform-google-monitoring)](https://github.com/notablehealth/terraform-google-monitoring/releases)
+
+[Terraform Module Registry](https://registry.terraform.io/modules/notablehealth/monitoring/google)
+
+Module for managing Google Cloud Monitoring
+
+## Features
+
+- Goal is to support all Google Cloud Monitoring resources that Terraform supports
+- Submodules can be called directly
+- Wrapper module to call all submodules
+
+## Usage
+Basic usage of this module is as follows:
+
+```hcl
+module "example" {
+    source = "notablehealth/<module>/google"
+    # Recommend pinning every module to a specific version
+    # version = "x.x.x"
+
+    # Required variables
+    gcp_project =
+}
+```
+
 ## Requirements
 
 | Name | Version |
@@ -126,4 +154,6 @@ No resources.
 | <a name="output_slo_ids"></a> [slo\_ids](#output\_slo\_ids) | List of SLO IDs |
 | <a name="output_uptime_check_ids"></a> [uptime\_check\_ids](#output\_uptime\_check\_ids) | The IDs of the uptime checks. |
 | <a name="output_uptime_checks"></a> [uptime\_checks](#output\_uptime\_checks) | All uptime checks managed |
+
+
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

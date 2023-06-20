@@ -27,7 +27,9 @@ for project in $(gcloud projects list --format="value(projectId)" | grep -v ^sys
     gcloud services enable --project="${project}" \
       compute.googleapis.com monitoring.googleapis.com \
       servicedirectory.googleapis.com servicenetworking.googleapis.com \
-      anthos.googleapis.com gkehub.googleapis.com
+      gkehub.googleapis.com
+      # Not enable anthos?? $$$ Verify in doc
+      # anthos.googleapis.com   May need in future
     ## Enable Fleet to Service Directory integration
     #   both of these commands appear to be the same
     #gcloud alpha container hub service-directory enable \
