@@ -15,7 +15,7 @@
  *
  * ## Submodules
  *
- * Submodules can be used directly
+ * Submodules can be used directly. Some may not be included in the root wrapper module.
  *
  * - [Submodules](modules/README.md)
  *

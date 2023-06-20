@@ -1,17 +1,17 @@
 
 # Code for managing Google Cloud Monitoring
 
-Code to manage Google Cloud Monitoring components
+Code to manage Google Cloud Monitoring and Logging components
 
 ### Terraform modules
 
 - [Alert Policies](alert-policies/README.md)
 - [Dashboards](dashboards/README.md)
+- [Data Access Audit Logs](data-access-audit-logs/README.md)
 - [Groups](groups/README.md)
 - [Log Metrics](log-metrics/README.md)
-- Log View
 - [Central Logging](logging/README.md)
-- [Metric Descriptors](metrics/README.md)
+- [Metric Descriptors](metric-descriptors/README.md)
 - [Notification Channels](notification-channels/README.md)
 - [Metric Project Scope](project-scope/README.md)
 - [Services](services/README.md)
@@ -25,22 +25,6 @@ Code to manage Google Cloud Monitoring components
 ### Google API to enable (change to Terraform)
 
 - [Enable Google APIs](enable-apis.md)
-
-### Scripts
-
-- [Prometheus](prometheus/README.md)
-
-### Google integrations
-
-- BigQuery
-- Cloud SQL
-- Compute Engine
-- Filestore (NFS)
-- GKE
-  - Managed Prometheus
-  - Ingress Nginx controller (requires Managed Prometheus & Exporter)
-  - Istio
-
 
 ### References
 
