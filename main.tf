@@ -12,6 +12,13 @@
  * - Goal is to support all Google Cloud Monitoring resources that Terraform supports
  * - Submodules can be called directly
  * - Wrapper module to call all submodules
+ *
+ * ## Submodules
+ *
+ * Submodules can be used directly
+ *
+ * - [Submodules](modules/README.md)
+ *
  */
 
 # Google Cloud Monitoring wrapper for component modules

@@ -1,41 +1,3 @@
-# terraform-google-monitoring
-
-[![Releases](https://img.shields.io/github/v/release/notablehealth/terraform-google-monitoring)](https://github.com/notablehealth/terraform-google-monitoring/releases)
-
-[Terraform Module Registry](https://registry.terraform.io/modules/notablehealth/monitoring/google)
-
-Module for managing Google Cloud Monitoring
-
-## Features
-
-- Goal is to support all Google Cloud Monitoring resources that Terraform supports
-
-## Usage
-
-Can use top level wrapper or submodules directly
-
-```hcl
-module "monitoring" {
-  source  = "notablehealth/monitoring/google"
-  # Recommend pinning every module to a specific version
-  # version = "x.x.x"
-}
-```
-
-```hcl
-module "uptime_checks" {
-  source = "notablehealth/monitoring/google//modules/uptime-checks"
-  # Recommend pinning every module to a specific version
-  # version = "x.x.x"
-}
-```
-
-## Submodules
-
-- [Submodules](modules/README.md)
-
-
-
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 # terraform-google-monitoring
 
@@ -50,6 +12,12 @@ Module for managing Google Cloud Monitoring
 - Goal is to support all Google Cloud Monitoring resources that Terraform supports
 - Submodules can be called directly
 - Wrapper module to call all submodules
+
+## Submodules
+
+Submodules can be used directly
+
+- [Submodules](modules/README.md)
 
 ## Usage
 Basic usage of this module is as follows:
