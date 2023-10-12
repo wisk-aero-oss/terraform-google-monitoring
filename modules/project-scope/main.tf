@@ -7,7 +7,7 @@ locals {
 }
 resource "google_monitoring_monitored_project" "self" {
   for_each = { for project in data.google_projects.self.projects :
-  project.name => project if lookup(project.labels, "monitor", "true") == "true" }
+  project.project_id => project if lookup(project.labels, "monitor", "true") == "true" }
   # Monitoring project
   metrics_scope = local.metrics_scope_project
   # Monitored project
