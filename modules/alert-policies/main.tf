@@ -99,8 +99,10 @@ resource "google_monitoring_alert_policy" "self" {
   documentation {
     content   = each.value.documentation["content"]
     mime_type = each.value.documentation["mime_type"]
+    #subject   = each.value.documentation["subject"]
   }
   enabled               = each.value.enabled
   notification_channels = [for name in each.value.notification_channels : data.google_monitoring_notification_channel.self[name].name]
-  user_labels           = each.value.user_labels
+  #severity              = each.value.severity
+  user_labels = each.value.user_labels
 }

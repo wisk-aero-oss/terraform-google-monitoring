@@ -72,9 +72,11 @@ variable "alert_policies" {
     documentation = object({
       content   = string
       mime_type = optional(string, "text/markdown")
+      subject   = optional(string)
     })
     enabled               = optional(bool, true)
     notification_channels = optional(list(string), [])
+    severity              = optional(string) # validate: CRITICAL, ERROR, WARNING
     user_labels           = optional(map(string))
   }))
   # Minimum required fields
