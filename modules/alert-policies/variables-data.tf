@@ -18,9 +18,9 @@ variable "alert_policies" {
       condition_absent = optional(object({
         aggregations = list(object({
           alignment_period     = optional(string)
-          cross_series_reducer = optional(string) # validate
-          group_by_fields      = optional(string) # ??
-          per_series_aligner   = optional(string) # validate
+          cross_series_reducer = optional(string)       # validate
+          group_by_fields      = optional(list(string)) # ??
+          per_series_aligner   = optional(string)       # validate
         }))
         duration = string # Valid: minutes in seconds: must be /60
         filter   = optional(string)
