@@ -9,7 +9,7 @@ variable "alert_policies" {
   type = list(object({
     alert_strategy = optional(object({
       notification_rate_limit = optional(object({
-        period = optional(number)
+        period = optional(string)
       }))
       auto_close = optional(string)
     }))
