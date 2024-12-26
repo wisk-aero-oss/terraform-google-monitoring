@@ -42,6 +42,14 @@ variable "alert_policies" {
           percent = optional(number)
         }))
       }))
+      condition_prometheus_query_language = optional(object({
+        query               = string
+        duration            = optional(string)
+        evaluation_interval = optional(string)
+        labels              = optional(map(string))
+        rule_group          = optional(string)
+        alert_rule          = optional(string)
+      }))
       condition_threshold = optional(object({
         aggregations = optional(list(object({
           alignment_period     = optional(string)       # validate
