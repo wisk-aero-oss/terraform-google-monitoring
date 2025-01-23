@@ -18,7 +18,7 @@ variable "notification_channels" {
   validation {
     condition = alltrue(flatten([
       for channel in var.notification_channels :
-      contains(["email", "pagerduty", "slack", "sms"],
+      contains(["email", "pagerduty", "slack", "sms", "webhook_tokenauth"],
     channel.type)]))
     error_message = "Allowed values for type: email, pagerduty, slack, sms"
   }

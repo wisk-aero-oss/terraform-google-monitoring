@@ -1,31 +1,37 @@
 
 
 locals {
+  # Support PagerDuty integration ID lookups
   channel_pagerduty_refs = compact(distinct(flatten(
     [
       for channel in var.notification_channels : [
         for label, value in(channel.sensitive_labels == null ? {} : channel.sensitive_labels) : [
-          #name         = "${channel.display_name}:${label}"
-          #secret_label = label
-          #secret_id    = value
           value
         ] if(value != null) && (label == "service_key") && (try(startswith(value, "pagerduty:"), false) == true)
       ]
     ]
   )))
-
-  channel_secret_refs = compact(distinct(flatten(
+  # Support secrets in labels
+  channel_label_secret_refs = compact(distinct(flatten(
     [
       for channel in var.notification_channels : [
-        for label, value in(channel.sensitive_labels == null ? {} : channel.sensitive_labels) : [
-          #name         = "${channel.display_name}:${label}"
-          #secret_label = label
-          #secret_id    = value
+        for label, value in(channel.labels == null ? {} : channel.labels) : [
           value
         ] if value != null && (try(startswith(value, "secret:"), false) == true)
       ]
     ]
   )))
+  # Support secrets in sensitive_labels
+  channel_slabel_secret_refs = compact(distinct(flatten(
+    [
+      for channel in var.notification_channels : [
+        for label, value in(channel.sensitive_labels == null ? {} : channel.sensitive_labels) : [
+          value
+        ] if value != null && (try(startswith(value, "secret:"), false) == true)
+      ]
+    ]
+  )))
+  channel_secret_refs = concat(local.channel_label_secret_refs, local.channel_slabel_secret_refs)
 }
 
 ##https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/service_integration
@@ -51,10 +57,16 @@ resource "google_monitoring_notification_channel" "self" {
   description  = each.value.description
   display_name = each.value.display_name
   enabled      = each.value.enabled
-  labels       = each.value.labels
-  project      = var.gcp_project
-  type         = each.value.type
-  user_labels  = each.value.user_labels
+  labels = each.value.labels != null ? { for label, value in(each.value.labels) : label =>
+    (lookup(data.google_secret_manager_secret_version_access.notification_channels, value, null) != null ?
+      data.google_secret_manager_secret_version_access.notification_channels[value].secret_data
+      # else use raw value
+    : value)
+  } : null
+
+  project     = var.gcp_project
+  type        = each.value.type
+  user_labels = each.value.user_labels
 
   dynamic "sensitive_labels" {
     for_each = each.value.sensitive_labels != null ? [each.value.sensitive_labels] : []

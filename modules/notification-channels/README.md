@@ -34,7 +34,7 @@ Secret can be looked up in any of the sensitive_label labels by using the format
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.4.5 |
 | <a name="requirement_google"></a> [google](#requirement\_google) | >= 4.62 |
-| <a name="requirement_pagerduty"></a> [pagerduty](#requirement\_pagerduty) | ~> 3.1 |
+| <a name="requirement_pagerduty"></a> [pagerduty](#requirement\_pagerduty) | ~> 3.13 |
 
 ## Providers
 
