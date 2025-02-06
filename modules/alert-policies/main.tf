@@ -113,7 +113,8 @@ resource "google_monitoring_alert_policy" "self" {
       dynamic "condition_matched_log" {
         for_each = conditions.value["condition_matched_log"] == null ? [] : [conditions.value["condition_matched_log"]]
         content {
-          filter = condition_matched_log.value["filter"]
+          filter           = condition_matched_log.value["filter"]
+          label_extractors = lookup(condition_matched_log.value, "label_extractors", null)
         }
       } # END condition_matched_log
     }
