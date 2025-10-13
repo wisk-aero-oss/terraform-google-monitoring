@@ -2,11 +2,12 @@
 
 locals {
   # Get metrics scope project (monitor = "scope")
-  metrics_scope_project = one([for project in local.projects_active :
+  metrics_scope_project = one([for project in local.projects :
   project.project_id if lookup(project.labels, "monitor", "xxx") == "scope"])
 }
+# if only org (default), then local.projects instead of local.projects_active
 resource "google_monitoring_monitored_project" "self" {
-  for_each = { for project in local.projects_active :
+  for_each = { for project in local.projects :
   project.project_id => project if lookup(project.labels, "monitor", "true") == "true" }
   # Monitoring project
   metrics_scope = local.metrics_scope_project

@@ -25,7 +25,7 @@ Manage the monitoring scope for projects
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 4.66.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 7.6.0 |
 
 ## Modules
 
@@ -36,11 +36,17 @@ No modules.
 | Name | Type |
 |------|------|
 | [google_monitoring_monitored_project.self](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_monitored_project) | resource |
+| [google_folders.level1](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/folders) | data source |
+| [google_folders.level2](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/folders) | data source |
+| [google_folders.level3](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/folders) | data source |
+| [google_organization.self](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/organization) | data source |
 | [google_projects.self](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/projects) | data source |
 
 ## Inputs
 
-No inputs.
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_organization_name"></a> [organization\_name](#input\_organization\_name) | Organization domain name | `string` | n/a | yes |
 
 ## Outputs
 

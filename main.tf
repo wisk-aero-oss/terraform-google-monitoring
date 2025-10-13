@@ -92,7 +92,7 @@ module "project_scope" {
   #count  = var.enable_project_scope && var.organization_name != "" ? 1 : 0
   count = var.enable_project_scope ? 1 : 0
 
-  #organization_name = var.organization_name
+  organization_name = var.organization_name
 }
 
 module "services" {
