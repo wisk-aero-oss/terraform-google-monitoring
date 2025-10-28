@@ -8,10 +8,15 @@ variable "alert_policies" {
   description = "Alert policy configuration objects"
   type = list(object({
     alert_strategy = optional(object({
+      auto_close = optional(string)
+      notification_channel_strategy = optional(list(object({
+        notification_channel_names = optional(list(string))
+        renotify_interval          = optional(number)
+      })))
+      notification_prompts = optional(list(string), ["OPENED"]) # NOTIFICATION_PROMPT_UNSPECIFIED, OPENED, CLOSED
       notification_rate_limit = optional(object({
         period = optional(string)
       }))
-      auto_close = optional(string)
     }))
     combiner = string
     conditions = list(object({
@@ -78,7 +83,11 @@ variable "alert_policies" {
     }))
     display_name = string
     documentation = object({
-      content   = string
+      content = string
+      links = optional(list(object({ # Max 3 items - verify
+        display_name = string
+        url          = string
+      })))
       mime_type = optional(string, "text/markdown")
       subject   = optional(string)
     })

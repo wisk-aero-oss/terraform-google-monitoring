@@ -19,7 +19,15 @@ resource "google_monitoring_alert_policy" "self" {
   dynamic "alert_strategy" {
     for_each = each.value.alert_strategy == null ? [] : [each.value.alert_strategy]
     content {
-      auto_close = alert_strategy.value["auto_close"]
+      auto_close           = alert_strategy.value["auto_close"]
+      notification_prompts = alert_strategy.value["notification_prompts"]
+      dynamic "notification_channel_strategy" {
+        for_each = alert_strategy.value["notification_channel_strategy"] == null ? [] : [alert_strategy.value["notification_channel_strategy"]]
+        content {
+          notification_channel_names = notification_channel_strategy.value["notification_channel_names"]
+          renotify_interval          = notification_channel_strategy.value["renotify_interval"]
+        }
+      }
       dynamic "notification_rate_limit" {
         for_each = alert_strategy.value["notification_rate_limit"] == null ? [] : [alert_strategy.value["notification_rate_limit"]]
         content {
@@ -123,10 +131,17 @@ resource "google_monitoring_alert_policy" "self" {
   documentation {
     content   = each.value.documentation["content"]
     mime_type = each.value.documentation["mime_type"]
-    #subject   = each.value.documentation["subject"]
+    subject   = each.value.documentation["subject"]
+    dynamic "links" {
+      for_each = each.value.documentation["links"] == null ? [] : each.value.documentation["links"]
+      content {
+        display_name = links.value.display_name
+        url          = links.value.url
+      }
+    }
   }
   enabled               = each.value.enabled
   notification_channels = [for name in each.value.notification_channels : data.google_monitoring_notification_channel.self[name].name]
-  #severity              = each.value.severity
-  user_labels = each.value.user_labels
+  severity              = each.value.severity
+  user_labels           = each.value.user_labels
 }
